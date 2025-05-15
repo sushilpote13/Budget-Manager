@@ -2,6 +2,8 @@
 
 **Budget Manager** is a responsive and feature-rich personal finance tracker built using HTML, CSS, and JavaScript. This project allows users to manage their income and expenses, visualize their spending patterns through charts, and gain insights into their monthly financial behavior — all from a simple, user-friendly interface.
 
+**👉 Check it out live:** [https://sushilpote13.github.io/Budget-Manager/](https://sushilpote13.github.io/Budget-Manager/)
+
 This app runs entirely on the frontend (client-side) and requires no database or backend to operate.
 
 ---
