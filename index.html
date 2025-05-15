@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="search-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Budget Manager</h1>
+
+        <div class="dashboard-settings-section card-style" style="margin-bottom: 20px;">
+            <h2>Dashboard Settings</h2>
+            <div class="settings-controls">
+                <label><input type="checkbox" id="toggle-balance-section" data-section-class="balance-section" checked> Show Balance</label>
+                <label><input type="checkbox" id="toggle-input-section" data-section-class="input-section" checked> Show Add Expense Form</label>
+                <label><input type="checkbox" id="toggle-expenses-section" data-section-class="expenses-section" checked> Show Expense List</label>
+                <label><input type="checkbox" id="toggle-summary-section" data-section-class="summary-section" checked> Show Summary & Chart</label>
+            </div>
+        </div>
+
+        <button id="theme-toggle">Toggle Theme</button>
+
+        <div class="balance-section">
+            <h2>Balance</h2>
+            <div class="balance-cards">
+                <div class="balance-card total-balance">
+                    <h3>Total Balance</h3>
+                    <p><span id="remaining-balance">₹0.00</span></p>
+                </div>
+                <div class="balance-card income">
+                    <h3>Total Income</h3>
+                    <p><span id="total-income">₹0.00</span></p>
+                </div>
+                <div class="balance-card expenses">
+                    <h3>Total Expenses</h3>
+                    <p><span id="total-expenses">₹0.00</span></p>
+                </div>
+            </div>
+
+            <div class="balance-actions">
+                <div class="income-form">
+                    <h3>Add Income</h3>
+                    <form id="income-form">
+                        <div>
+                            <label for="income-date">Date:</label>
+                            <input type="date" id="income-date" required>
+                        </div>
+                        <div>
+                            <label for="income-description">Description:</label>
+                            <input type="text" id="income-description" placeholder="e.g., Salary, Freelance" required>
+                        </div>
+                        <div>
+                            <label for="income-amount">Amount:</label>
+                            <input type="number" id="income-amount" placeholder="e.g., 50000.00" step="0.01" required>
+                        </div>
+                        <button type="submit" class="income-btn">Add Income</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <h2>Add New Expense</h2>
+            <form id="expense-form">
+                <div>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div>
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" placeholder="e.g., Groceries, Rent" required>
+                </div>
+                <div>
+                    <label for="category">Category:</label>
+                    <input type="text" id="category" placeholder="e.g., Food, Housing" list="category-list" required>
+                    <datalist id="category-list">
+                        <!-- Category options will be added here by JavaScript -->
+                    </datalist>
+                </div>
+                <div>
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" placeholder="e.g., 50.00" step="0.01" required>
+                </div>
+                <button type="submit">Add Expense</button>
+            </form>
+        </div>
+
+        <div class="expenses-section">
+            <h2>Expenses</h2>
+            <ul id="expense-list">
+                <!-- Expenses will be listed here -->
+            </ul>
+        </div>
+
+        <div class="transactions-section">
+            <h2>Transaction History</h2>
+            <div class="actions-bar">
+                <button id="clear-history-btn" class="action-btn clear-btn">Clear History</button>
+                <button id="export-csv-btn" class="action-btn export-btn">Export to CSV</button>
+            </div>
+            <div class="transaction-filters">
+                <select id="transaction-type-filter">
+                    <option value="all">All Transactions</option>
+                    <option value="income">Income Only</option>
+                    <option value="expense">Expenses Only</option>
+                </select>
+                <input type="month" id="transaction-month-filter">
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <!-- Category options will be populated by JavaScript -->
+                </select>
+            </div>
+            <div class="search-container">
+                <input type="text" id="transaction-search" placeholder="Search transactions...">
+                <button id="search-button">Search</button>
+                <button id="clear-search-button">Clear</button>
+            </div>
+            <ul id="transaction-list" class="transaction-list">
+                <!-- Transactions will be listed here -->
+            </ul>
+        </div>
+
+        <div class="summary-section">
+            <h2>Monthly Summary</h2>
+            <div id="monthly-summary">
+                <!-- Monthly summary will be shown here -->
+            </div>
+            <div class="chart-container">
+                <canvas id="expense-chart"></canvas>
+            </div>
+            <button id="clear-category-filter" style="display:none; margin-top: 10px;">Show All Expenses</button>
+        </div>
+    </div>
+
+    <script src="app-new.js"></script>
+    <!-- Other scripts commented out -->
+    <!-- <script src="simple-app.js"></script> -->
+    <!-- <script type="module" src="app.js"></script> -->
+    <!-- <script src="delete-fix.js"></script> -->
+    <!-- <script src="app-fix.js"></script> -->
+    <div id="toast-container"></div>
+</body>
+</html>

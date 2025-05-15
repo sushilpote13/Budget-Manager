@@ -1,0 +1,281 @@
+/* Search Container Styles */
+.search-container {
+    display: flex;
+    margin-bottom: 15px;
+    gap: 10px;
+    align-items: center;
+}
+
+#transaction-search {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+}
+
+#search-button, #clear-search-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+#search-button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+}
+
+#search-button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+#clear-search-button {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+#clear-search-button:hover {
+    background-color: var(--danger-hover-color);
+}
+
+/* Highlight search matches */
+.search-highlight {
+    background-color: rgba(255, 255, 0, 0.3);
+    padding: 2px;
+    border-radius: 2px;
+}
+
+/* Improved spacing for transactions - more compact and narrower */
+.transaction-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+}
+
+.transaction-list li {
+    margin-bottom: 6px;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    padding: 6px 10px;
+    transition: all 0.2s ease;
+    max-height: 85px;
+    overflow: hidden;
+    width: calc(50% - 10px); /* Make items take up approximately half the width minus gap */
+    box-sizing: border-box;
+    flex-grow: 0;
+    position: relative; /* For absolute positioned delete button */
+    padding-right: 30px; /* Make room for the delete button */
+}
+
+/* Transaction type styling */
+.transaction.income {
+    background-color: rgba(40, 167, 69, 0.1); /* Light green background */
+    border-left: 4px solid #28a745; /* Green border */
+}
+
+.transaction.expense {
+    background-color: rgba(220, 53, 69, 0.1); /* Light red background */
+    border-left: 4px solid #dc3545; /* Red border */
+}
+
+/* Hover effects for transactions */
+.transaction.income:hover {
+    background-color: rgba(40, 167, 69, 0.2); /* Slightly darker on hover */
+}
+
+.transaction.expense:hover {
+    background-color: rgba(220, 53, 69, 0.2); /* Slightly darker on hover */
+}
+
+/* Amount color styling */
+.transaction.income .amount {
+    color: #28a745; /* Green text for income amounts */
+    font-weight: bold;
+}
+
+.transaction.expense .amount {
+    color: #dc3545; /* Red text for expense amounts */
+    font-weight: bold;
+}
+
+/* Dark theme support */
+:root[data-theme="dark"] .transaction.income {
+    background-color: rgba(40, 167, 69, 0.15); /* Slightly more visible in dark mode */
+}
+
+:root[data-theme="dark"] .transaction.expense {
+    background-color: rgba(220, 53, 69, 0.15); /* Slightly more visible in dark mode */
+}
+
+/* Improved Button Styling */
+button {
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin: 5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Form submit buttons */
+.income-btn, .expense-btn {
+    min-width: 140px;
+    margin-top: 15px;
+}
+
+.income-btn {
+    background-color: var(--button-bg-color);
+    color: white;
+}
+
+.expense-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+/* Delete button styling - more visible */
+.delete-btn {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    background-color: var(--danger-color);
+    color: white;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    z-index: 5; /* Ensure it's above other elements */
+    cursor: pointer; /* Make sure cursor shows it's clickable */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.delete-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Trash icon styling */
+.trash-icon {
+    font-size: 1rem;
+}
+
+/* Filter inputs styling */
+#transaction-month-filter {
+    margin: 0 8px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+}
+
+.transaction-filters {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Actions bar styling */
+.actions-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.action-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.export-btn {
+    background-color: #17a2b8; /* Info blue color */
+    color: white;
+}
+
+.export-btn:hover {
+    background-color: #138496;
+}
+
+.export-btn::before {
+    content: '📊';
+    font-size: 1.1em;
+}
+
+.clear-btn {
+    background-color: var(--danger-color);
+    color: white;
+    margin-right: 10px;
+}
+
+.clear-btn:hover {
+    background-color: var(--danger-hover-color);
+}
+
+.clear-btn::before {
+    content: '🗑️';
+    font-size: 1.1em;
+}
+
+/* Position delete button container at right center */
+.transaction-actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(0,0,0,0.03));
+}
+
+/* Even more compact transaction details layout */
+.transaction-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.transaction-details strong {
+    font-size: 0.85rem;
+}
+
+.transaction-details small {
+    color: var(--text-color);
+    opacity: 0.75;
+    font-size: 0.75rem;
+}
+
+.transaction-details .amount {
+    font-size: 0.85rem;
+}

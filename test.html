@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        body.dark {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark .container {
+            background-color: #2d2d2d;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            color: #102a43;
+        }
+        
+        body.dark h1 {
+            color: #ffffff;
+        }
+        
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        body.dark button {
+            background-color: #2e7d32;
+        }
+        
+        #toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .toast {
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            opacity: 0.9;
+            animation: fadeIn 0.3s;
+        }
+        
+        .toast.info {
+            background-color: #17a2b8;
+        }
+        
+        .toast.fade-out {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 0.9; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Budget App Test Page</h1>
+        <p>This is a simple test page to verify that theme toggling works correctly.</p>
+        <button id="theme-toggle">Toggle Theme</button>
+    </div>
+    
+    <div id="toast-container"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Test page loaded');
+            
+            // Get theme toggle button
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            
+            // Toast notification function
+            function showToast(message, type = 'info') {
+                const toastContainer = document.getElementById('toast-container');
+                
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.textContent = message;
+                toastContainer.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.classList.add('fade-out');
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+            
+            // Toggle theme function
+            function toggleTheme() {
+                const body = document.body;
+                const isDark = body.classList.contains('dark');
+                
+                if (isDark) {
+                    body.classList.remove('dark');
+                    showToast('Light theme applied');
+                    console.log('Theme changed to light');
+                } else {
+                    body.classList.add('dark');
+                    showToast('Dark theme applied');
+                    console.log('Theme changed to dark');
+                }
+            }
+            
+            // Add click event to button
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', toggleTheme);
+                console.log('Theme toggle button is ready');
+            } else {
+                console.error('Theme toggle button not found');
+            }
+        });
+    </script>
+</body>
+</html>
