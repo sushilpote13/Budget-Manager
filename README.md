@@ -67,9 +67,9 @@ This app runs entirely on the frontend (client-side) and requires no database or
 
 ## 🖼️ Screens Included!
 
-[Screenshot (81)](https://github.com/user-attachments/assets/cc78a79f-399e-4787-b919-fe461c5ea8b6)
-
 > The application UI consists of the following screens and components:
+> ![Screenshot (81)](https://github.com/user-attachments/assets/a6ca3914-c83e-4747-82e1-40e5acb772e0)
+
 
 - **Dashboard with Theme Toggle and Section Controls**
 - **Total Balance Display (Income, Expense, Net Balance)**
