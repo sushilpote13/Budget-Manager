@@ -79,8 +79,6 @@ This app runs entirely on the frontend (client-side) and requires no database or
 - **Transaction History Filters & Search**
 - **Monthly Summary with Pie Chart**
 
-> *Note: You can capture your own screenshots and save them in a `screenshots/` folder to include in this section.*
-
 ---
 
 ## 🛠 Technologies Used
